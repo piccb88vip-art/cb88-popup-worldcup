@@ -20,9 +20,7 @@
       position:fixed;
       inset:0;
       z-index:2147483647;
-      background:rgba(0,0,0,.74);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
+      background:rgba(0,0,0,.45);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -30,6 +28,7 @@
       box-sizing:border-box;
       font-family:Arial,Helvetica,sans-serif;
       overflow:hidden;
+      cursor:pointer;
     }
 
     .cb88Particle{
@@ -41,6 +40,7 @@
       box-shadow:0 0 12px rgba(255,215,95,.9);
       animation:cbParticle 7s linear infinite;
       opacity:.75;
+      pointer-events:none;
     }
 
     .cb88Particle:nth-child(1){left:12%;top:100%;animation-delay:0s;}
@@ -60,6 +60,7 @@
       filter:blur(65px);
       opacity:.45;
       animation:cbOrb 6s ease-in-out infinite;
+      pointer-events:none;
     }
 
     #cb88PopupWrap:before{
@@ -82,6 +83,8 @@
       background:#030814;
       overflow:hidden;
       z-index:2;
+      cursor:default;
+      pointer-events:auto;
       clip-path:polygon(
         20px 0,
         calc(100% - 20px) 0,
@@ -100,6 +103,15 @@
       animation:
         cbPop .45s cubic-bezier(.18,.9,.28,1.18),
         cbFloat 4.6s ease-in-out infinite .45s;
+    }
+
+    #cb88Popup *{
+      cursor:default;
+    }
+
+    #cb88Popup a,
+    #cb88Popup button{
+      cursor:pointer;
     }
 
     #cb88Popup:before{
@@ -193,6 +205,7 @@
       overflow:hidden;
       background:linear-gradient(135deg,rgba(8,18,38,.96),rgba(15,15,15,.98));
       transition:.18s ease;
+      cursor:pointer;
     }
 
     .cb88Btn:before{
@@ -205,6 +218,7 @@
       background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);
       transform:skewX(-22deg);
       animation:cbShine 3.2s infinite;
+      pointer-events:none;
     }
 
     .cb88Btn:after{
@@ -216,12 +230,14 @@
       font-size:34px;
       font-weight:900;
       opacity:.95;
+      pointer-events:none;
     }
 
     .cb88Icon{
       font-size:26px;
       z-index:2;
       animation:cbIcon 2.8s ease-in-out infinite;
+      pointer-events:none;
     }
 
     .cb88Text{
@@ -229,6 +245,7 @@
       flex-direction:column;
       line-height:1.08;
       z-index:2;
+      pointer-events:none;
     }
 
     .cb88Main{font-size:15px;}
@@ -244,27 +261,60 @@
       box-shadow:inset 0 0 18px rgba(0,195,255,.18),0 0 16px rgba(0,153,255,.48);
       animation:cbBlue 2.6s ease-in-out infinite;
     }
-    #cb88Generate .cb88Main{color:#7cddff;}
+
+    #cb88Generate .cb88Main{
+      color:#7cddff;
+    }
 
     #cb88Claim{
       border:1px solid rgba(255,194,55,.95);
       box-shadow:inset 0 0 18px rgba(255,194,55,.22),0 0 16px rgba(255,194,55,.45);
       animation:cbGold 2.6s ease-in-out infinite .4s;
     }
-    #cb88Claim .cb88Main{color:#ffe27a;}
+
+    #cb88Claim .cb88Main{
+      color:#ffe27a;
+    }
 
     .cb88Btn:hover{
       transform:translateY(-2px) scale(1.025);
       filter:brightness(1.14);
     }
 
-    @keyframes cbPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
-    @keyframes cbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-    @keyframes cbShine{0%{left:-90%}45%,100%{left:130%}}
-    @keyframes cbBorderPulse{0%,100%{opacity:.55}50%{opacity:1}}
-    @keyframes cbScan{from{transform:translateX(-100%) rotate(18deg)}to{transform:translateX(100%) rotate(18deg)}}
-    @keyframes cbOrb{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-    @keyframes cbIcon{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes cbPop{
+      from{opacity:0;transform:scale(.88) translateY(18px)}
+      to{opacity:1;transform:scale(1) translateY(0)}
+    }
+
+    @keyframes cbFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-7px)}
+    }
+
+    @keyframes cbShine{
+      0%{left:-90%}
+      45%,100%{left:130%}
+    }
+
+    @keyframes cbBorderPulse{
+      0%,100%{opacity:.55}
+      50%{opacity:1}
+    }
+
+    @keyframes cbScan{
+      from{transform:translateX(-100%) rotate(18deg)}
+      to{transform:translateX(100%) rotate(18deg)}
+    }
+
+    @keyframes cbOrb{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.18)}
+    }
+
+    @keyframes cbIcon{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-2px)}
+    }
 
     @keyframes cbBlue{
       0%,100%{box-shadow:inset 0 0 18px rgba(0,195,255,.18),0 0 16px rgba(0,153,255,.48)}
@@ -295,7 +345,16 @@
     @media(max-width:520px){
       #cb88Popup{
         max-width:94vw;
-        clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);
+        clip-path:polygon(
+          14px 0,
+          calc(100% - 14px) 0,
+          100% 14px,
+          100% calc(100% - 14px),
+          calc(100% - 14px) 100%,
+          14px 100%,
+          0 calc(100% - 14px),
+          0 14px
+        );
       }
 
       #cb88Action{
@@ -314,9 +373,17 @@
         height:30px;
       }
 
-      .cb88Icon{font-size:24px}
-      .cb88Main{font-size:14px}
-      .cb88Sub{font-size:11px}
+      .cb88Icon{
+        font-size:24px;
+      }
+
+      .cb88Main{
+        font-size:14px;
+      }
+
+      .cb88Sub{
+        font-size:11px;
+      }
 
       #cb88CloseX{
         width:28px;
@@ -374,11 +441,27 @@
   localStorage.setItem(delayKey, Date.now());
 
   function closePopup() {
-    wrap.remove();
+    if (wrap && wrap.parentNode) {
+      wrap.parentNode.removeChild(wrap);
+    }
   }
 
-  document.getElementById("cb88CloseX").onclick = closePopup;
-  wrap.onclick = function (e) {
-    if (e.target === wrap) closePopup();
-  };
+  var popup = document.getElementById("cb88Popup");
+  var closeBtn = document.getElementById("cb88CloseX");
+
+  closeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    closePopup();
+  });
+
+  wrap.addEventListener("click", function (e) {
+    if (popup && !popup.contains(e.target)) {
+      closePopup();
+    }
+  });
+
+  popup.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 })();
