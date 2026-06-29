@@ -1,12 +1,16 @@
 (function () {
   function showCB88Popup() {
-    var bannerURL = "https://plcl.me/images/xyW2C.png";
+    var banners = [
+      "https://plcl.me/images/4ykja.png",
+      "https://plcl.me/images/E77ud.png"
+    ];
+
+    var currentSlide = 0;
     var generateURL = "https://click-lynk.com/AI-CLICKBET88";
     var claimURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL";
 
     var path = window.location.pathname.toLowerCase();
     if (path !== "/" && path !== "/home" && path !== "/home/" && path !== "/index.html") return;
-
     if (document.getElementById("cb88PopupWrap")) return;
 
     if (!document.getElementById("cb88PopupStyle")) {
@@ -130,6 +134,54 @@
           width:100%;
           display:block;
           height:auto;
+          transition:opacity .22s ease;
+        }
+
+        #cb88Prev,
+        #cb88Next{
+          position:absolute;
+          top:44%;
+          transform:translateY(-50%);
+          width:34px;
+          height:48px;
+          border-radius:12px;
+          border:1px solid rgba(255,255,255,.55);
+          background:rgba(0,20,60,.78);
+          color:#fff;
+          font-size:34px;
+          font-weight:900;
+          line-height:40px;
+          z-index:12;
+          cursor:pointer;
+          box-shadow:0 0 14px rgba(0,153,255,.8);
+        }
+
+        #cb88Prev{left:8px;}
+        #cb88Next{right:8px;}
+
+        #cb88Dots{
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:78px;
+          display:flex;
+          justify-content:center;
+          gap:6px;
+          z-index:12;
+          pointer-events:none;
+        }
+
+        .cb88Dot{
+          width:7px;
+          height:7px;
+          border-radius:50%;
+          background:rgba(255,255,255,.45);
+          box-shadow:0 0 8px rgba(255,255,255,.5);
+        }
+
+        .cb88Dot.active{
+          background:#ffd65a;
+          box-shadow:0 0 10px rgba(255,214,90,1);
         }
 
         #cb88CloseX{
@@ -145,7 +197,7 @@
           font-size:22px;
           line-height:26px;
           cursor:pointer;
-          z-index:10;
+          z-index:15;
           box-shadow:0 0 12px rgba(0,153,255,.75);
         }
 
@@ -303,6 +355,18 @@
             height:30px;
           }
 
+          #cb88Prev,
+          #cb88Next{
+            width:30px;
+            height:42px;
+            font-size:30px;
+            top:39%;
+          }
+
+          #cb88Dots{
+            bottom:132px;
+          }
+
           .cb88Icon{font-size:24px}
           .cb88Main{font-size:14px}
           .cb88Sub{font-size:11px}
@@ -338,7 +402,11 @@
 
         <button id="cb88CloseX" type="button">×</button>
 
-        <img id="cb88PopupImg" src="${bannerURL}" alt="CLICKBET88">
+        <button id="cb88Prev" type="button">‹</button>
+        <img id="cb88PopupImg" src="${banners[currentSlide]}" alt="CLICKBET88">
+        <button id="cb88Next" type="button">›</button>
+
+        <div id="cb88Dots"></div>
 
         <div id="cb88Action">
           <a id="cb88Generate" class="cb88Btn" href="${generateURL}" target="_blank" rel="noopener">
@@ -362,14 +430,50 @@
 
     document.body.appendChild(wrap);
 
+    var popup = document.getElementById("cb88Popup");
+    var closeBtn = document.getElementById("cb88CloseX");
+    var img = document.getElementById("cb88PopupImg");
+    var prevBtn = document.getElementById("cb88Prev");
+    var nextBtn = document.getElementById("cb88Next");
+    var dotsBox = document.getElementById("cb88Dots");
+
+    function renderDots() {
+      dotsBox.innerHTML = "";
+      banners.forEach(function (_, i) {
+        var dot = document.createElement("span");
+        dot.className = "cb88Dot" + (i === currentSlide ? " active" : "");
+        dotsBox.appendChild(dot);
+      });
+    }
+
+    function updateSlide() {
+      img.style.opacity = "0";
+      setTimeout(function () {
+        img.src = banners[currentSlide];
+        img.style.opacity = "1";
+        renderDots();
+      }, 120);
+    }
+
     function closePopup() {
       if (wrap && wrap.parentNode) {
         wrap.parentNode.removeChild(wrap);
       }
     }
 
-    var popup = document.getElementById("cb88Popup");
-    var closeBtn = document.getElementById("cb88CloseX");
+    prevBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      currentSlide = (currentSlide - 1 + banners.length) % banners.length;
+      updateSlide();
+    });
+
+    nextBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      currentSlide = (currentSlide + 1) % banners.length;
+      updateSlide();
+    });
 
     closeBtn.addEventListener("click", function (e) {
       e.preventDefault();
@@ -386,6 +490,8 @@
     popup.addEventListener("click", function (e) {
       e.stopPropagation();
     });
+
+    renderDots();
   }
 
   showCB88Popup();
@@ -397,16 +503,7 @@
       lastURL = location.href;
 
       setTimeout(function () {
-        var path = window.location.pathname.toLowerCase();
-
-        if (
-          path === "/" ||
-          path === "/home" ||
-          path === "/home/" ||
-          path === "/index.html"
-        ) {
-          showCB88Popup();
-        }
+        showCB88Popup();
       }, 300);
     }
   }, 500);
