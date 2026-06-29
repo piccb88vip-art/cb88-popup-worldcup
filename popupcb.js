@@ -7,7 +7,7 @@
 
     var currentSlide = 0;
     var generateURL = "https://click-lynk.com/AI-CLICKBET88";
-    var claimURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL";
+    var claimURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL"; 
 
     var path = window.location.pathname.toLowerCase();
     if (path !== "/" && path !== "/home" && path !== "/home/" && path !== "/index.html") return;
