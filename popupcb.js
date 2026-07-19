@@ -1,7 +1,7 @@
 (function () {
   function showCB88Popup() {
     var banners = [
-      "https://plcl.me/images/UUVjp.jpg",
+      "https://plcl.me/images/mkVeW.jpg",
       "https://plcl.me/images/4ykja.png",
       "https://plcl.me/images/E77ud.png"
     ];
