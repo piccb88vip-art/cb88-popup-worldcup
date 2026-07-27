@@ -2,12 +2,12 @@
   function showCB88Popup() {
     var banners = [
       "https://plcl.me/images/x3TZP.jpg",
-      ""
-    ];
+      "https://plcl.me/images/wUi2j.jpg"
+    ].filter(Boolean);
 
     var currentSlide = 0;
     var generateURL = "https://click-lynk.com/AI-CLICKBET88";
-    var claimURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL"; 
+    var adminURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL";
 
     var path = window.location.pathname.toLowerCase();
     if (path !== "/" && path !== "/home" && path !== "/home/" && path !== "/index.html") return;
@@ -21,7 +21,12 @@
           position:fixed;
           inset:0;
           z-index:2147483647;
-          background:rgba(0,0,0,.45);
+          background:
+            radial-gradient(circle at 18% 16%,rgba(0,157,255,.18),transparent 32%),
+            radial-gradient(circle at 82% 84%,rgba(255,189,46,.15),transparent 34%),
+            rgba(0,3,10,.72);
+          -webkit-backdrop-filter:blur(14px) saturate(.72);
+          backdrop-filter:blur(14px) saturate(.72);
           display:flex;
           align-items:center;
           justify-content:center;
@@ -30,6 +35,8 @@
           font-family:Arial,Helvetica,sans-serif;
           overflow:hidden;
           cursor:pointer;
+          isolation:isolate;
+          animation:cbBackdropIn .32s ease-out both;
         }
 
         .cb88Particle{
@@ -81,14 +88,18 @@
           position:relative;
           width:100%;
           max-width:590px;
-          background:#030814;
+          background:linear-gradient(155deg,#061126 0%,#020711 48%,#07101f 100%);
           overflow:hidden;
           z-index:2;
           cursor:default;
           pointer-events:auto;
           clip-path:polygon(20px 0,calc(100% - 20px) 0,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0 calc(100% - 20px),0 20px);
           border:1px solid rgba(76,183,255,.65);
-          box-shadow:0 0 32px rgba(0,153,255,.72),0 0 20px rgba(255,190,40,.26),0 16px 46px rgba(0,0,0,.88);
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,.08),
+            0 0 42px rgba(0,153,255,.78),
+            0 0 28px rgba(255,190,40,.32),
+            0 24px 70px rgba(0,0,0,.94);
           animation:cbPop .45s cubic-bezier(.18,.9,.28,1.18),cbFloat 4.6s ease-in-out infinite .45s;
         }
 
@@ -188,25 +199,35 @@
           position:absolute;
           top:9px;
           right:9px;
-          width:30px;
-          height:30px;
+          width:34px;
+          height:34px;
           border-radius:50%;
-          border:1px solid rgba(255,255,255,.55);
-          background:rgba(0,20,60,.82);
+          border:1px solid rgba(255,224,139,.85);
+          background:linear-gradient(145deg,rgba(9,29,65,.96),rgba(2,7,17,.96));
           color:#fff;
           font-size:22px;
-          line-height:26px;
+          line-height:29px;
           cursor:pointer;
           z-index:15;
-          box-shadow:0 0 12px rgba(0,153,255,.75);
+          box-shadow:0 0 16px rgba(0,153,255,.75),inset 0 0 10px rgba(255,214,90,.12);
+          transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+        }
+
+        #cb88CloseX:hover{
+          transform:rotate(90deg) scale(1.08);
+          background:linear-gradient(145deg,#c22d3f,#6d1221);
+          box-shadow:0 0 20px rgba(255,70,95,.85);
         }
 
         #cb88Action{
           display:grid;
           grid-template-columns:1fr 1fr;
           gap:10px;
-          padding:10px;
-          background:linear-gradient(180deg,#030814,#050b18);
+          padding:11px;
+          background:
+            linear-gradient(180deg,rgba(3,8,20,.97),rgba(5,11,24,.99)),
+            radial-gradient(circle at center,rgba(0,153,255,.15),transparent 65%);
+          border-top:1px solid rgba(104,220,255,.25);
           position:relative;
           z-index:6;
         }
@@ -225,9 +246,11 @@
           text-align:left;
           position:relative;
           overflow:hidden;
-          background:linear-gradient(135deg,rgba(8,18,38,.96),rgba(15,15,15,.98));
+          background:
+            linear-gradient(135deg,rgba(12,31,65,.98),rgba(4,9,20,.99) 58%,rgba(20,15,6,.96));
           transition:.18s ease;
           cursor:pointer;
+          isolation:isolate;
         }
 
         .cb88Btn:before{
@@ -290,6 +313,7 @@
           border:1px solid rgba(255,194,55,.95);
           box-shadow:inset 0 0 18px rgba(255,194,55,.22),0 0 16px rgba(255,194,55,.45);
           animation:cbGold 2.6s ease-in-out infinite .4s;
+          background:linear-gradient(135deg,rgba(75,45,3,.98),rgba(17,15,10,.99) 54%,rgba(7,25,52,.98));
         }
 
         #cb88Claim .cb88Main{color:#ffe27a;}
@@ -299,6 +323,7 @@
           filter:brightness(1.14);
         }
 
+        @keyframes cbBackdropIn{from{opacity:0;-webkit-backdrop-filter:blur(0) saturate(1);backdrop-filter:blur(0) saturate(1)}to{opacity:1;-webkit-backdrop-filter:blur(14px) saturate(.72);backdrop-filter:blur(14px) saturate(.72)}}
         @keyframes cbPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
         @keyframes cbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
         @keyframes cbShine{0%{left:-90%}45%,100%{left:130%}}
@@ -334,8 +359,15 @@
         }
 
         @media(max-width:520px){
+          #cb88PopupWrap{
+            padding:10px;
+            -webkit-backdrop-filter:blur(11px) saturate(.75);
+            backdrop-filter:blur(11px) saturate(.75);
+          }
+
           #cb88Popup{
             max-width:94vw;
+            max-height:94vh;
             clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);
           }
 
@@ -400,11 +432,11 @@
         <span class="cb88Corner cb88C3"></span>
         <span class="cb88Corner cb88C4"></span>
 
-        <button id="cb88CloseX" type="button">×</button>
+        <button id="cb88CloseX" type="button" aria-label="Tutup popup">×</button>
 
-        <button id="cb88Prev" type="button">‹</button>
+        <button id="cb88Prev" type="button" aria-label="Banner sebelumnya">‹</button>
         <img id="cb88PopupImg" src="${banners[currentSlide]}" alt="CLICKBET88">
-        <button id="cb88Next" type="button">›</button>
+        <button id="cb88Next" type="button" aria-label="Banner berikutnya">›</button>
 
         <div id="cb88Dots"></div>
 
@@ -417,11 +449,11 @@
             </span>
           </a>
 
-          <a id="cb88Claim" class="cb88Btn" href="${claimURL}" target="_blank" rel="noopener">
-            <span class="cb88Icon">🎁</span>
+          <a id="cb88Claim" class="cb88Btn" href="${adminURL}" target="_blank" rel="noopener">
+            <span class="cb88Icon">💬</span>
             <span class="cb88Text">
-              <span class="cb88Main">CLAIM EVENT</span>
-              <span class="cb88Sub">WORLD CUP BONUS</span>
+              <span class="cb88Main">HUBUNGI ADMIN</span>
+              <span class="cb88Sub">LIVECHAT 24 JAM</span>
             </span>
           </a>
         </div>
@@ -436,6 +468,17 @@
     var prevBtn = document.getElementById("cb88Prev");
     var nextBtn = document.getElementById("cb88Next");
     var dotsBox = document.getElementById("cb88Dots");
+    var previousBodyOverflow = document.body.style.overflow;
+    var previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    if (banners.length < 2) {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+      dotsBox.style.display = "none";
+    }
 
     function renderDots() {
       dotsBox.innerHTML = "";
@@ -455,7 +498,17 @@
       }, 120);
     }
 
+    function closeOnEscape(e) {
+      if (e.key === "Escape") {
+        closePopup();
+      }
+    }
+
     function closePopup() {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.removeEventListener("keydown", closeOnEscape);
+
       if (wrap && wrap.parentNode) {
         wrap.parentNode.removeChild(wrap);
       }
@@ -480,6 +533,8 @@
       e.stopPropagation();
       closePopup();
     });
+
+    document.addEventListener("keydown", closeOnEscape);
 
     wrap.addEventListener("click", function (e) {
       if (popup && !popup.contains(e.target)) {
