@@ -21,12 +21,9 @@
           position:fixed;
           inset:0;
           z-index:2147483647;
-          background:
-            radial-gradient(circle at 18% 16%,rgba(0,157,255,.12),transparent 32%),
-            radial-gradient(circle at 82% 84%,rgba(255,189,46,.10),transparent 34%),
-            rgba(0,3,10,.50);
-          -webkit-backdrop-filter:blur(5px) saturate(.90);
-          backdrop-filter:blur(5px) saturate(.90);
+          background:rgba(0,3,10,.38);
+          -webkit-backdrop-filter:blur(3px) saturate(.96);
+          backdrop-filter:blur(3px) saturate(.96);
           display:flex;
           align-items:center;
           justify-content:center;
@@ -36,52 +33,7 @@
           overflow:hidden;
           cursor:pointer;
           isolation:isolate;
-          animation:cbBackdropIn .32s ease-out both;
-        }
-
-        .cb88Particle{
-          position:absolute;
-          width:4px;
-          height:4px;
-          border-radius:50%;
-          background:rgba(255,215,95,.95);
-          box-shadow:0 0 12px rgba(255,215,95,.9);
-          animation:cbParticle 7s linear infinite;
-          opacity:.75;
-          pointer-events:none;
-        }
-
-        .cb88Particle:nth-child(1){left:12%;top:100%;animation-delay:0s;}
-        .cb88Particle:nth-child(2){left:22%;top:100%;animation-delay:1.2s;background:#62d9ff;box-shadow:0 0 12px #62d9ff;}
-        .cb88Particle:nth-child(3){left:38%;top:100%;animation-delay:2.1s;}
-        .cb88Particle:nth-child(4){left:55%;top:100%;animation-delay:.6s;background:#62d9ff;box-shadow:0 0 12px #62d9ff;}
-        .cb88Particle:nth-child(5){left:72%;top:100%;animation-delay:1.8s;}
-        .cb88Particle:nth-child(6){left:86%;top:100%;animation-delay:3s;background:#62d9ff;box-shadow:0 0 12px #62d9ff;}
-
-        #cb88PopupWrap:before,
-        #cb88PopupWrap:after{
-          content:"";
-          position:absolute;
-          width:280px;
-          height:280px;
-          border-radius:50%;
-          filter:blur(65px);
-          opacity:.45;
-          animation:cbOrb 6s ease-in-out infinite;
-          pointer-events:none;
-        }
-
-        #cb88PopupWrap:before{
-          background:#009dff;
-          left:14%;
-          top:13%;
-        }
-
-        #cb88PopupWrap:after{
-          background:#ffbd2e;
-          right:14%;
-          bottom:13%;
-          animation-delay:1.4s;
+          animation:cbBackdropIn .22s ease-out both;
         }
 
         #cb88Popup{
@@ -97,10 +49,8 @@
           border:1px solid rgba(76,183,255,.65);
           box-shadow:
             0 0 0 1px rgba(255,255,255,.08),
-            0 0 42px rgba(0,153,255,.78),
-            0 0 28px rgba(255,190,40,.32),
-            0 24px 70px rgba(0,0,0,.94);
-          animation:cbPop .45s cubic-bezier(.18,.9,.28,1.18),cbFloat 4.6s ease-in-out infinite .45s;
+            0 20px 58px rgba(0,0,0,.88);
+          animation:cbPop .35s cubic-bezier(.18,.9,.28,1.12);
         }
 
         #cb88Popup *{cursor:default;}
@@ -112,18 +62,7 @@
           inset:0;
           pointer-events:none;
           z-index:5;
-          box-shadow:inset 0 0 26px rgba(0,195,255,.42),inset 0 0 8px rgba(255,210,75,.22);
-          animation:cbBorderPulse 2.5s ease-in-out infinite;
-        }
-
-        #cb88Popup:after{
-          content:"";
-          position:absolute;
-          inset:-140%;
-          z-index:4;
-          pointer-events:none;
-          background:linear-gradient(120deg,transparent 43%,rgba(255,255,255,.25) 50%,transparent 57%);
-          animation:cbScan 5s linear infinite;
+          box-shadow:inset 0 0 14px rgba(255,255,255,.10);
         }
 
         .cb88Corner{
@@ -132,14 +71,13 @@
           height:42px;
           z-index:7;
           pointer-events:none;
-          filter:drop-shadow(0 0 8px rgba(0,195,255,.95));
-          opacity:.95;
+          opacity:.88;
         }
 
-        .cb88C1{top:9px;left:9px;border-top:3px solid #68dcff;border-left:3px solid #68dcff;animation:cbCornerBlue 2.2s ease-in-out infinite;}
-        .cb88C2{top:9px;right:9px;border-top:3px solid #ffd65a;border-right:3px solid #ffd65a;animation:cbCornerGold 2.2s ease-in-out infinite .35s;}
-        .cb88C3{bottom:9px;left:9px;border-bottom:3px solid #ffd65a;border-left:3px solid #ffd65a;animation:cbCornerGold 2.2s ease-in-out infinite .7s;}
-        .cb88C4{bottom:9px;right:9px;border-bottom:3px solid #68dcff;border-right:3px solid #68dcff;animation:cbCornerBlue 2.2s ease-in-out infinite 1.05s;}
+        .cb88C1{top:9px;left:9px;border-top:3px solid #68dcff;border-left:3px solid #68dcff;}
+        .cb88C2{top:9px;right:9px;border-top:3px solid #ffd65a;border-right:3px solid #ffd65a;}
+        .cb88C3{bottom:9px;left:9px;border-bottom:3px solid #ffd65a;border-left:3px solid #ffd65a;}
+        .cb88C4{bottom:9px;right:9px;border-bottom:3px solid #68dcff;border-right:3px solid #68dcff;}
 
         #cb88PopupImg{
           width:100%;
@@ -164,7 +102,7 @@
           line-height:40px;
           z-index:12;
           cursor:pointer;
-          box-shadow:0 0 14px rgba(0,153,255,.8);
+          box-shadow:0 3px 12px rgba(0,0,0,.58);
         }
 
         #cb88Prev{left:8px;}
@@ -197,26 +135,30 @@
 
         #cb88CloseX{
           position:absolute;
-          top:9px;
-          right:9px;
-          width:34px;
-          height:34px;
+          top:8px;
+          right:8px;
+          width:40px;
+          height:40px;
           border-radius:50%;
-          border:1px solid rgba(255,224,139,.85);
-          background:linear-gradient(145deg,rgba(9,29,65,.96),rgba(2,7,17,.96));
+          border:2px solid #fff;
+          background:#c71936;
           color:#fff;
-          font-size:22px;
-          line-height:29px;
+          font-size:28px;
+          font-weight:900;
+          line-height:1;
           cursor:pointer;
-          z-index:15;
-          box-shadow:0 0 16px rgba(0,153,255,.75),inset 0 0 10px rgba(255,214,90,.12);
-          transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+          z-index:20;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          padding:0 0 3px;
+          box-shadow:0 0 0 3px rgba(0,0,0,.48),0 5px 16px rgba(0,0,0,.72);
+          transition:transform .16s ease,background .16s ease;
         }
 
         #cb88CloseX:hover{
-          transform:rotate(90deg) scale(1.08);
-          background:linear-gradient(145deg,#c22d3f,#6d1221);
-          box-shadow:0 0 20px rgba(255,70,95,.85);
+          transform:scale(1.08);
+          background:#ee2949;
         }
 
         #cb88Action{
@@ -224,9 +166,7 @@
           grid-template-columns:1fr 1fr;
           gap:10px;
           padding:11px;
-          background:
-            linear-gradient(180deg,rgba(3,8,20,.97),rgba(5,11,24,.99)),
-            radial-gradient(circle at center,rgba(0,153,255,.15),transparent 65%);
+          background:linear-gradient(180deg,rgba(3,8,20,.97),rgba(5,11,24,.99));
           border-top:1px solid rgba(104,220,255,.25);
           position:relative;
           z-index:6;
@@ -250,20 +190,6 @@
             linear-gradient(135deg,rgba(12,31,65,.98),rgba(4,9,20,.99) 58%,rgba(20,15,6,.96));
           transition:.18s ease;
           cursor:pointer;
-          isolation:isolate;
-        }
-
-        .cb88Btn:before{
-          content:"";
-          position:absolute;
-          top:-40%;
-          left:-90%;
-          width:55%;
-          height:180%;
-          background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);
-          transform:skewX(-22deg);
-          animation:cbShine 3.2s infinite;
-          pointer-events:none;
         }
 
         .cb88Btn:after{
@@ -281,7 +207,6 @@
         .cb88Icon{
           font-size:26px;
           z-index:2;
-          animation:cbIcon 2.8s ease-in-out infinite;
           pointer-events:none;
         }
 
@@ -303,16 +228,14 @@
 
         #cb88Generate{
           border:1px solid rgba(0,195,255,.95);
-          box-shadow:inset 0 0 18px rgba(0,195,255,.18),0 0 16px rgba(0,153,255,.48);
-          animation:cbBlue 2.6s ease-in-out infinite;
+          box-shadow:inset 0 0 10px rgba(0,195,255,.12),0 3px 10px rgba(0,0,0,.36);
         }
 
         #cb88Generate .cb88Main{color:#7cddff;}
 
         #cb88Claim{
           border:1px solid rgba(255,194,55,.95);
-          box-shadow:inset 0 0 18px rgba(255,194,55,.22),0 0 16px rgba(255,194,55,.45);
-          animation:cbGold 2.6s ease-in-out infinite .4s;
+          box-shadow:inset 0 0 10px rgba(255,194,55,.14),0 3px 10px rgba(0,0,0,.36);
           background:linear-gradient(135deg,rgba(75,45,3,.98),rgba(17,15,10,.99) 54%,rgba(7,25,52,.98));
         }
 
@@ -323,46 +246,14 @@
           filter:brightness(1.14);
         }
 
-        @keyframes cbBackdropIn{from{opacity:0;-webkit-backdrop-filter:blur(0) saturate(1);backdrop-filter:blur(0) saturate(1)}to{opacity:1;-webkit-backdrop-filter:blur(5px) saturate(.90);backdrop-filter:blur(5px) saturate(.90)}}
+        @keyframes cbBackdropIn{from{opacity:0}to{opacity:1}}
         @keyframes cbPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
-        @keyframes cbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-        @keyframes cbShine{0%{left:-90%}45%,100%{left:130%}}
-        @keyframes cbBorderPulse{0%,100%{opacity:.55}50%{opacity:1}}
-        @keyframes cbScan{from{transform:translateX(-100%) rotate(18deg)}to{transform:translateX(100%) rotate(18deg)}}
-        @keyframes cbOrb{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-        @keyframes cbIcon{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
-
-        @keyframes cbBlue{
-          0%,100%{box-shadow:inset 0 0 18px rgba(0,195,255,.18),0 0 16px rgba(0,153,255,.48)}
-          50%{box-shadow:inset 0 0 24px rgba(0,195,255,.32),0 0 24px rgba(0,195,255,.75)}
-        }
-
-        @keyframes cbGold{
-          0%,100%{box-shadow:inset 0 0 18px rgba(255,194,55,.22),0 0 16px rgba(255,194,55,.45)}
-          50%{box-shadow:inset 0 0 24px rgba(255,194,55,.35),0 0 24px rgba(255,194,55,.78)}
-        }
-
-        @keyframes cbParticle{
-          0%{transform:translateY(0) scale(.8);opacity:0}
-          12%{opacity:.85}
-          100%{transform:translateY(-110vh) scale(1.4);opacity:0}
-        }
-
-        @keyframes cbCornerBlue{
-          0%,100%{opacity:.45;filter:drop-shadow(0 0 4px rgba(0,195,255,.55))}
-          50%{opacity:1;filter:drop-shadow(0 0 14px rgba(0,195,255,1))}
-        }
-
-        @keyframes cbCornerGold{
-          0%,100%{opacity:.45;filter:drop-shadow(0 0 4px rgba(255,210,75,.55))}
-          50%{opacity:1;filter:drop-shadow(0 0 14px rgba(255,210,75,1))}
-        }
 
         @media(max-width:520px){
           #cb88PopupWrap{
             padding:10px;
-            -webkit-backdrop-filter:blur(4px) saturate(.92);
-            backdrop-filter:blur(4px) saturate(.92);
+            -webkit-backdrop-filter:blur(2px) saturate(.98);
+            backdrop-filter:blur(2px) saturate(.98);
           }
 
           #cb88Popup{
@@ -404,10 +295,9 @@
           .cb88Sub{font-size:11px}
 
           #cb88CloseX{
-            width:28px;
-            height:28px;
-            font-size:21px;
-            line-height:24px;
+            width:36px;
+            height:36px;
+            font-size:26px;
           }
         }
       `;
@@ -419,13 +309,6 @@
     wrap.id = "cb88PopupWrap";
 
     wrap.innerHTML = `
-      <span class="cb88Particle"></span>
-      <span class="cb88Particle"></span>
-      <span class="cb88Particle"></span>
-      <span class="cb88Particle"></span>
-      <span class="cb88Particle"></span>
-      <span class="cb88Particle"></span>
-
       <div id="cb88Popup">
         <span class="cb88Corner cb88C1"></span>
         <span class="cb88Corner cb88C2"></span>
