@@ -22,11 +22,11 @@
           inset:0;
           z-index:2147483647;
           background:
-            radial-gradient(circle at 18% 16%,rgba(0,157,255,.18),transparent 32%),
-            radial-gradient(circle at 82% 84%,rgba(255,189,46,.15),transparent 34%),
-            rgba(0,3,10,.72);
-          -webkit-backdrop-filter:blur(14px) saturate(.72);
-          backdrop-filter:blur(14px) saturate(.72);
+            radial-gradient(circle at 18% 16%,rgba(0,157,255,.12),transparent 32%),
+            radial-gradient(circle at 82% 84%,rgba(255,189,46,.10),transparent 34%),
+            rgba(0,3,10,.50);
+          -webkit-backdrop-filter:blur(5px) saturate(.90);
+          backdrop-filter:blur(5px) saturate(.90);
           display:flex;
           align-items:center;
           justify-content:center;
@@ -323,7 +323,7 @@
           filter:brightness(1.14);
         }
 
-        @keyframes cbBackdropIn{from{opacity:0;-webkit-backdrop-filter:blur(0) saturate(1);backdrop-filter:blur(0) saturate(1)}to{opacity:1;-webkit-backdrop-filter:blur(14px) saturate(.72);backdrop-filter:blur(14px) saturate(.72)}}
+        @keyframes cbBackdropIn{from{opacity:0;-webkit-backdrop-filter:blur(0) saturate(1);backdrop-filter:blur(0) saturate(1)}to{opacity:1;-webkit-backdrop-filter:blur(5px) saturate(.90);backdrop-filter:blur(5px) saturate(.90)}}
         @keyframes cbPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
         @keyframes cbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
         @keyframes cbShine{0%{left:-90%}45%,100%{left:130%}}
@@ -361,8 +361,8 @@
         @media(max-width:520px){
           #cb88PopupWrap{
             padding:10px;
-            -webkit-backdrop-filter:blur(11px) saturate(.75);
-            backdrop-filter:blur(11px) saturate(.75);
+            -webkit-backdrop-filter:blur(4px) saturate(.92);
+            backdrop-filter:blur(4px) saturate(.92);
           }
 
           #cb88Popup{
