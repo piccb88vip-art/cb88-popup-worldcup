@@ -521,7 +521,7 @@
     if (location.href !== lastURL) {
       lastURL = location.href;
 
-      setTimeout(function () {
+      setTimeout(function () { 
         showCB88Popup();
       }, 300);
     }
