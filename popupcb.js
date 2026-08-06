@@ -6,8 +6,10 @@
     ].filter(Boolean);
 
     var currentSlide = 0;
-    var generateURL = "https://click-lynk.com/AI-CLICKBET88";
-    var adminURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL";
+    var eventURL = "https://click-lynk.com/MINIGAMES-CLICKBET88";
+    var rtpURL = "https://click-lynk.com/RTP_GACOR_CLICKBET88WL";
+    var groupURL = "https://click-lynk.com/GROUP-TELEGRAM";
+    var adminURL = "https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL";
 
     var path = window.location.pathname.toLowerCase();
     if (path !== "/" && path !== "/home" && path !== "/home/" && path !== "/index.html") return;
@@ -46,9 +48,11 @@
           cursor:default;
           pointer-events:auto;
           clip-path:polygon(20px 0,calc(100% - 20px) 0,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0 calc(100% - 20px),0 20px);
-          border:1px solid rgba(76,183,255,.65);
+          border:3px solid #fff;
           box-shadow:
-            0 0 0 1px rgba(255,255,255,.08),
+            0 0 0 4px #d7192d,
+            0 0 0 6px rgba(255,255,255,.92),
+            0 0 34px rgba(237,28,36,.55),
             0 20px 58px rgba(0,0,0,.88);
           animation:cbPop .35s cubic-bezier(.18,.9,.28,1.12);
         }
@@ -61,8 +65,31 @@
           position:absolute;
           inset:0;
           pointer-events:none;
-          z-index:5;
-          box-shadow:inset 0 0 14px rgba(255,255,255,.10);
+          z-index:8;
+          border:8px solid transparent;
+          border-image:repeating-linear-gradient(135deg,#d7192d 0 12px,#fff 12px 24px) 12;
+          box-shadow:inset 0 0 18px rgba(255,255,255,.14);
+        }
+
+        #cb88Popup:after{
+          content:"🇮🇩  GEBYAR 17 AGUSTUS  🇮🇩";
+          position:absolute;
+          top:8px;
+          left:50%;
+          transform:translateX(-50%);
+          z-index:16;
+          padding:7px 18px 8px;
+          border:2px solid #fff;
+          border-radius:0 0 14px 14px;
+          background:linear-gradient(180deg,#f22b3e,#a80013);
+          color:#fff;
+          font-size:12px;
+          font-weight:1000;
+          letter-spacing:1px;
+          text-shadow:0 2px 3px rgba(0,0,0,.65);
+          box-shadow:0 5px 16px rgba(0,0,0,.5),0 0 16px rgba(255,36,55,.45);
+          white-space:nowrap;
+          pointer-events:none;
         }
 
         .cb88Corner{
@@ -74,10 +101,10 @@
           opacity:.88;
         }
 
-        .cb88C1{top:9px;left:9px;border-top:3px solid #68dcff;border-left:3px solid #68dcff;}
-        .cb88C2{top:9px;right:9px;border-top:3px solid #ffd65a;border-right:3px solid #ffd65a;}
-        .cb88C3{bottom:9px;left:9px;border-bottom:3px solid #ffd65a;border-left:3px solid #ffd65a;}
-        .cb88C4{bottom:9px;right:9px;border-bottom:3px solid #68dcff;border-right:3px solid #68dcff;}
+        .cb88C1{top:10px;left:10px;border-top:4px solid #fff;border-left:4px solid #d7192d;}
+        .cb88C2{top:10px;right:10px;border-top:4px solid #fff;border-right:4px solid #d7192d;}
+        .cb88C3{bottom:10px;left:10px;border-bottom:4px solid #fff;border-left:4px solid #d7192d;}
+        .cb88C4{bottom:10px;right:10px;border-bottom:4px solid #fff;border-right:4px solid #d7192d;}
 
         #cb88PopupImg{
           width:100%;
@@ -165,11 +192,24 @@
           display:grid;
           grid-template-columns:1fr 1fr;
           gap:10px;
-          padding:11px;
+          padding:38px 11px 11px;
           background:linear-gradient(180deg,rgba(3,8,20,.97),rgba(5,11,24,.99));
           border-top:1px solid rgba(104,220,255,.25);
           position:relative;
           z-index:6;
+        }
+
+        #cb88Action:before{
+          content:"AKSES CEPAT CLICKBET88";
+          position:absolute;
+          top:11px;
+          left:50%;
+          transform:translateX(-50%);
+          color:rgba(255,255,255,.72);
+          font-size:10px;
+          font-weight:900;
+          letter-spacing:1.8px;
+          white-space:nowrap;
         }
 
         .cb88Btn{
@@ -177,7 +217,7 @@
           align-items:center;
           justify-content:center;
           gap:8px;
-          min-height:56px;
+          min-height:58px;
           border-radius:13px;
           text-decoration:none;
           color:#fff;
@@ -190,6 +230,7 @@
             linear-gradient(135deg,rgba(12,31,65,.98),rgba(4,9,20,.99) 58%,rgba(20,15,6,.96));
           transition:.18s ease;
           cursor:pointer;
+          padding:9px 38px 9px 12px;
         }
 
         .cb88Btn:after{
@@ -226,20 +267,35 @@
           color:#fff;
         }
 
-        #cb88Generate{
-          border:1px solid rgba(0,195,255,.95);
-          box-shadow:inset 0 0 10px rgba(0,195,255,.12),0 3px 10px rgba(0,0,0,.36);
+        #cb88Event{
+          border:1px solid rgba(255,72,72,.95);
+          box-shadow:inset 0 0 12px rgba(255,42,42,.15),0 3px 10px rgba(0,0,0,.36);
+          background:linear-gradient(135deg,rgba(91,12,22,.98),rgba(22,8,15,.99) 56%,rgba(35,12,8,.98));
         }
 
-        #cb88Generate .cb88Main{color:#7cddff;}
+        #cb88Event .cb88Main{color:#ff8585;}
 
-        #cb88Claim{
+        #cb88Rtp{
           border:1px solid rgba(255,194,55,.95);
           box-shadow:inset 0 0 10px rgba(255,194,55,.14),0 3px 10px rgba(0,0,0,.36);
           background:linear-gradient(135deg,rgba(75,45,3,.98),rgba(17,15,10,.99) 54%,rgba(7,25,52,.98));
         }
 
-        #cb88Claim .cb88Main{color:#ffe27a;}
+        #cb88Rtp .cb88Main{color:#ffe27a;}
+
+        #cb88Group{
+          border:1px solid rgba(0,195,255,.95);
+          box-shadow:inset 0 0 10px rgba(0,195,255,.12),0 3px 10px rgba(0,0,0,.36);
+        }
+
+        #cb88Group .cb88Main{color:#7cddff;}
+
+        #cb88Admin{
+          border:1px solid rgba(51,224,154,.95);
+          box-shadow:inset 0 0 10px rgba(51,224,154,.14),0 3px 10px rgba(0,0,0,.36);
+        }
+
+        #cb88Admin .cb88Main{color:#73ffc3;}
 
         .cb88Btn:hover{
           transform:translateY(-2px) scale(1.025);
@@ -263,14 +319,15 @@
           }
 
           #cb88Action{
-            grid-template-columns:1fr;
+            grid-template-columns:1fr 1fr;
             gap:8px;
-            padding:9px;
+            padding:34px 8px 8px;
           }
 
           .cb88Btn{
-            min-height:50px;
+            min-height:52px;
             border-radius:11px;
+            padding:7px 26px 7px 8px;
           }
 
           .cb88Corner{
@@ -287,12 +344,20 @@
           }
 
           #cb88Dots{
-            bottom:132px;
+            bottom:156px;
           }
 
-          .cb88Icon{font-size:24px}
-          .cb88Main{font-size:14px}
-          .cb88Sub{font-size:11px}
+          .cb88Icon{font-size:20px}
+          .cb88Main{font-size:11px}
+          .cb88Sub{font-size:9px}
+          .cb88Btn:after{right:9px;font-size:24px}
+
+          #cb88Popup:after{
+            top:6px;
+            padding:5px 12px 6px;
+            font-size:9px;
+            letter-spacing:.6px;
+          }
 
           #cb88CloseX{
             width:36px;
@@ -324,19 +389,35 @@
         <div id="cb88Dots"></div>
 
         <div id="cb88Action">
-          <a id="cb88Generate" class="cb88Btn" href="${generateURL}" target="_blank" rel="noopener">
-            <span class="cb88Icon">🤖</span>
+          <a id="cb88Event" class="cb88Btn" href="${eventURL}" target="_blank" rel="noopener noreferrer">
+            <span class="cb88Icon">🎮</span>
             <span class="cb88Text">
-              <span class="cb88Main">GENERATE AI</span>
-              <span class="cb88Sub">PREDICTION</span>
+              <span class="cb88Main">EVENT AGUSTUS</span>
+              <span class="cb88Sub">MAIN &amp; MENANGKAN HADIAH</span>
             </span>
           </a>
 
-          <a id="cb88Claim" class="cb88Btn" href="${adminURL}" target="_blank" rel="noopener">
+          <a id="cb88Rtp" class="cb88Btn" href="${rtpURL}" target="_blank" rel="noopener noreferrer">
+            <span class="cb88Icon">🤖</span>
+            <span class="cb88Text">
+              <span class="cb88Main">RTP GENERATE AI</span>
+              <span class="cb88Sub">CEK RTP HARI INI</span>
+            </span>
+          </a>
+
+          <a id="cb88Group" class="cb88Btn" href="${groupURL}" target="_blank" rel="noopener noreferrer">
+            <span class="cb88Icon">📣</span>
+            <span class="cb88Text">
+              <span class="cb88Main">GROUP TELEGRAM</span>
+              <span class="cb88Sub">INFO &amp; UPDATE TERBARU</span>
+            </span>
+          </a>
+
+          <a id="cb88Admin" class="cb88Btn" href="${adminURL}" target="_blank" rel="noopener noreferrer">
             <span class="cb88Icon">💬</span>
             <span class="cb88Text">
               <span class="cb88Main">HUBUNGI ADMIN</span>
-              <span class="cb88Sub">LIVECHAT 24 JAM</span>
+              <span class="cb88Sub">TELEGRAM OFFICIAL</span>
             </span>
           </a>
         </div>
