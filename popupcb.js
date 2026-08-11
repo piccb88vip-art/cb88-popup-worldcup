@@ -29,7 +29,7 @@
           display:flex;
           align-items:center;
           justify-content:center;
-          padding:12px;
+          padding:58px;
           box-sizing:border-box;
           font-family:Arial,Helvetica,sans-serif;
           overflow:hidden;
@@ -43,18 +43,17 @@
           width:100%;
           max-width:590px;
           background:linear-gradient(155deg,#061126 0%,#020711 48%,#07101f 100%);
-          overflow:hidden;
+          overflow:visible;
           z-index:2;
           cursor:default;
           pointer-events:auto;
           box-sizing:border-box;
-          padding:12px 13px 14px;
+          padding:0;
           border:0;
-          border-radius:48px 48px 54px 54px / 34px 34px 42px 42px;
+          border-radius:30px;
           box-shadow:
-            0 0 0 2px rgba(121,0,17,.92),
-            0 0 0 5px rgba(255,214,87,.95),
-            0 0 36px rgba(255,32,56,.62),
+            0 0 0 1px rgba(255,216,96,.88),
+            0 0 32px rgba(255,32,56,.42),
             0 22px 60px rgba(0,0,0,.9);
           animation:cbPop .35s cubic-bezier(.18,.9,.28,1.12);
         }
@@ -69,7 +68,7 @@
         #cb88Popup:after{
           content:"🇮🇩  GEBYAR 17 AGUSTUS  🇮🇩";
           position:absolute;
-          top:8px;
+          top:-31px;
           left:50%;
           transform:translateX(-50%);
           z-index:19;
@@ -157,9 +156,10 @@
 
         .cb88OrnateFrame{
           position:absolute;
-          inset:0;
-          width:100%;
-          height:100%;
+          top:-43px;
+          left:-49px;
+          width:calc(100% + 98px);
+          height:calc(100% + 88px);
           z-index:18;
           pointer-events:none;
           overflow:visible;
@@ -169,7 +169,7 @@
         .cb88FrameGold{
           fill:none;
           stroke:url(#cb88FrameGoldGradient);
-          stroke-width:16;
+          stroke-width:23;
           stroke-linecap:round;
           stroke-linejoin:round;
           vector-effect:non-scaling-stroke;
@@ -178,7 +178,7 @@
         .cb88FrameRed{
           fill:none;
           stroke:url(#cb88FrameRedGradient);
-          stroke-width:11;
+          stroke-width:16;
           stroke-linecap:round;
           stroke-linejoin:round;
           vector-effect:non-scaling-stroke;
@@ -187,7 +187,7 @@
         .cb88FrameWhite{
           fill:none;
           stroke:url(#cb88FrameWhiteGradient);
-          stroke-width:4;
+          stroke-width:6;
           stroke-linecap:round;
           stroke-linejoin:round;
           vector-effect:non-scaling-stroke;
@@ -197,14 +197,14 @@
         .cb88FrameInner{
           fill:none;
           stroke:rgba(255,220,112,.9);
-          stroke-width:2;
+          stroke-width:2.6;
           vector-effect:non-scaling-stroke;
         }
 
         .cb88FrameCurl{
           fill:none;
           stroke:#ffd462;
-          stroke-width:5;
+          stroke-width:7;
           stroke-linecap:round;
           vector-effect:non-scaling-stroke;
         }
@@ -212,7 +212,7 @@
         .cb88FrameCurlRed{
           fill:none;
           stroke:#b90a24;
-          stroke-width:2.2;
+          stroke-width:3;
           stroke-linecap:round;
           vector-effect:non-scaling-stroke;
         }
@@ -274,8 +274,8 @@
 
         #cb88CloseX{
           position:absolute;
-          top:8px;
-          right:8px;
+          top:-29px;
+          right:-31px;
           width:40px;
           height:40px;
           border-radius:50%;
@@ -457,16 +457,23 @@
 
         @media(max-width:520px){
           #cb88PopupWrap{
-            padding:10px;
+            padding:38px;
             -webkit-backdrop-filter:blur(2px) saturate(.98);
             backdrop-filter:blur(2px) saturate(.98);
           }
 
           #cb88Popup{
-            max-width:94vw;
+            max-width:calc(100vw - 76px);
             max-height:94vh;
-            padding:9px 10px 11px;
-            border-radius:34px 34px 40px 40px / 25px 25px 31px 31px;
+            padding:0;
+            border-radius:24px;
+          }
+
+          .cb88OrnateFrame{
+            top:-29px;
+            left:-32px;
+            width:calc(100% + 64px);
+            height:calc(100% + 60px);
           }
 
           #cb88PopupImg{border-radius:23px 23px 0 0;}
@@ -509,13 +516,15 @@
           .cb88Btn:after{right:9px;font-size:24px}
 
           #cb88Popup:after{
-            top:6px;
+            top:-22px;
             padding:5px 12px 6px;
             font-size:9px;
             letter-spacing:.6px;
           }
 
           #cb88CloseX{
+            top:-22px;
+            right:-23px;
             width:36px;
             height:36px;
             font-size:26px;
