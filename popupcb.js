@@ -1,8 +1,8 @@
 (function () {
   function showCB88Popup() {
     var banners = [
-      "https://plcl.me/images/7fpCe.jpg",
-      "https://plcl.me/images/YRhDC.jpg"
+      "https://plcl.me/images/WeWV4.jpg",
+      "https://plcl.me/images/piERD.jpg"
     ].filter(Boolean);
 
     var currentSlide = 0;
