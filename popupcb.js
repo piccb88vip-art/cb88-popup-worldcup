@@ -47,14 +47,14 @@
           z-index:2;
           cursor:default;
           pointer-events:auto;
-          clip-path:polygon(22px 0,calc(100% - 22px) 0,100% 22px,100% calc(100% - 22px),calc(100% - 22px) 100%,22px 100%,0 calc(100% - 22px),0 22px);
-          border:2px solid #ffe7a3;
+          box-sizing:border-box;
+          padding:12px 13px 14px;
+          border:0;
+          border-radius:48px 48px 54px 54px / 34px 34px 42px 42px;
           box-shadow:
-            0 0 0 2px #7e0715,
-            0 0 0 5px #fff8e8,
-            0 0 0 8px #c90d28,
-            0 0 0 10px #f4bf45,
-            0 0 28px rgba(255,32,56,.58),
+            0 0 0 2px rgba(121,0,17,.92),
+            0 0 0 5px rgba(255,214,87,.95),
+            0 0 36px rgba(255,32,56,.62),
             0 22px 60px rgba(0,0,0,.9);
           animation:cbPop .35s cubic-bezier(.18,.9,.28,1.12);
         }
@@ -63,20 +63,7 @@
         #cb88Popup a,#cb88Popup button{cursor:pointer;}
 
         #cb88Popup:before{
-          content:"";
-          position:absolute;
-          inset:2px;
-          pointer-events:none;
-          z-index:14;
-          border:7px solid transparent;
-          border-image:linear-gradient(
-            135deg,
-            #8b0717 0%,#f0263f 12%,#fff6df 23%,#d20b29 36%,
-            #ffc94f 50%,#fff8e7 61%,#d20b29 76%,#ff5266 88%,#8b0717 100%
-          ) 10;
-          box-shadow:
-            inset 0 0 0 1px rgba(255,226,131,.9),
-            inset 0 0 12px rgba(255,255,255,.16);
+          display:none;
         }
 
         #cb88Popup:after{
@@ -85,7 +72,7 @@
           top:8px;
           left:50%;
           transform:translateX(-50%);
-          z-index:16;
+          z-index:19;
           padding:7px 18px 8px;
           border:2px solid #fff;
           border-radius:0 0 14px 14px;
@@ -163,10 +150,78 @@
         .cb88RibbonTop{top:3px;}
         .cb88RibbonBottom{bottom:3px;transform:scaleX(-1);}
 
+        .cb88Corner,
+        .cb88Ribbon{
+          display:none;
+        }
+
+        .cb88OrnateFrame{
+          position:absolute;
+          inset:0;
+          width:100%;
+          height:100%;
+          z-index:18;
+          pointer-events:none;
+          overflow:visible;
+          filter:drop-shadow(0 3px 3px rgba(0,0,0,.72));
+        }
+
+        .cb88FrameGold{
+          fill:none;
+          stroke:url(#cb88FrameGoldGradient);
+          stroke-width:16;
+          stroke-linecap:round;
+          stroke-linejoin:round;
+          vector-effect:non-scaling-stroke;
+        }
+
+        .cb88FrameRed{
+          fill:none;
+          stroke:url(#cb88FrameRedGradient);
+          stroke-width:11;
+          stroke-linecap:round;
+          stroke-linejoin:round;
+          vector-effect:non-scaling-stroke;
+        }
+
+        .cb88FrameWhite{
+          fill:none;
+          stroke:url(#cb88FrameWhiteGradient);
+          stroke-width:4;
+          stroke-linecap:round;
+          stroke-linejoin:round;
+          vector-effect:non-scaling-stroke;
+          opacity:.96;
+        }
+
+        .cb88FrameInner{
+          fill:none;
+          stroke:rgba(255,220,112,.9);
+          stroke-width:2;
+          vector-effect:non-scaling-stroke;
+        }
+
+        .cb88FrameCurl{
+          fill:none;
+          stroke:#ffd462;
+          stroke-width:5;
+          stroke-linecap:round;
+          vector-effect:non-scaling-stroke;
+        }
+
+        .cb88FrameCurlRed{
+          fill:none;
+          stroke:#b90a24;
+          stroke-width:2.2;
+          stroke-linecap:round;
+          vector-effect:non-scaling-stroke;
+        }
+
         #cb88PopupImg{
           width:100%;
           display:block;
           height:auto;
+          border-radius:31px 31px 0 0;
           transition:opacity .22s ease;
         }
 
@@ -252,6 +307,7 @@
           padding:38px 11px 11px;
           background:linear-gradient(180deg,rgba(3,8,20,.97),rgba(5,11,24,.99));
           border-top:1px solid rgba(104,220,255,.25);
+          border-radius:0 0 36px 36px;
           position:relative;
           z-index:6;
         }
@@ -409,8 +465,13 @@
           #cb88Popup{
             max-width:94vw;
             max-height:94vh;
-            clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);
+            padding:9px 10px 11px;
+            border-radius:34px 34px 40px 40px / 25px 25px 31px 31px;
           }
+
+          #cb88PopupImg{border-radius:23px 23px 0 0;}
+
+          #cb88Action{border-radius:0 0 28px 28px;}
 
           #cb88Action{
             grid-template-columns:1fr 1fr;
@@ -477,6 +538,60 @@
         <span class="cb88Ribbon cb88RibbonTop"></span>
         <span class="cb88Ribbon cb88RibbonBottom"></span>
 
+        <svg class="cb88OrnateFrame" viewBox="0 0 590 450" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="cb88FrameGoldGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#8f4b00"/>
+              <stop offset=".16" stop-color="#ffe899"/>
+              <stop offset=".34" stop-color="#c77a08"/>
+              <stop offset=".52" stop-color="#fff1aa"/>
+              <stop offset=".74" stop-color="#d68a0a"/>
+              <stop offset="1" stop-color="#7b3700"/>
+            </linearGradient>
+            <linearGradient id="cb88FrameRedGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff4257"/>
+              <stop offset=".32" stop-color="#d50b2b"/>
+              <stop offset=".7" stop-color="#970018"/>
+              <stop offset="1" stop-color="#f21d3a"/>
+            </linearGradient>
+            <linearGradient id="cb88FrameWhiteGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#d9c9a2"/>
+              <stop offset=".28" stop-color="#fffef4"/>
+              <stop offset=".72" stop-color="#fff8df"/>
+              <stop offset="1" stop-color="#c9ab72"/>
+            </linearGradient>
+            <linearGradient id="cb88FrameGem" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5a68"/>
+              <stop offset=".5" stop-color="#d40729"/>
+              <stop offset="1" stop-color="#740010"/>
+            </linearGradient>
+          </defs>
+
+          <path class="cb88FrameGold" d="M54 11 C126 24 205 13 250 13 C272 13 279 29 295 35 C311 29 318 13 340 13 C385 13 464 24 536 11 C565 15 579 31 580 57 C570 92 578 136 580 178 C572 211 572 240 580 273 C578 322 568 399 536 439 C464 427 385 437 340 437 C318 437 311 421 295 415 C279 421 272 437 250 437 C205 437 126 427 54 439 C22 399 12 322 10 273 C18 240 18 211 10 178 C12 136 20 92 10 57 C11 31 25 15 54 11 Z"/>
+          <path class="cb88FrameRed" d="M54 11 C126 24 205 13 250 13 C272 13 279 29 295 35 C311 29 318 13 340 13 C385 13 464 24 536 11 C565 15 579 31 580 57 C570 92 578 136 580 178 C572 211 572 240 580 273 C578 322 568 399 536 439 C464 427 385 437 340 437 C318 437 311 421 295 415 C279 421 272 437 250 437 C205 437 126 427 54 439 C22 399 12 322 10 273 C18 240 18 211 10 178 C12 136 20 92 10 57 C11 31 25 15 54 11 Z"/>
+          <path class="cb88FrameWhite" d="M54 11 C126 24 205 13 250 13 C272 13 279 29 295 35 C311 29 318 13 340 13 C385 13 464 24 536 11 C565 15 579 31 580 57 C570 92 578 136 580 178 C572 211 572 240 580 273 C578 322 568 399 536 439 C464 427 385 437 340 437 C318 437 311 421 295 415 C279 421 272 437 250 437 C205 437 126 427 54 439 C22 399 12 322 10 273 C18 240 18 211 10 178 C12 136 20 92 10 57 C11 31 25 15 54 11 Z"/>
+
+          <path class="cb88FrameInner" d="M59 26 C131 36 210 28 255 28 C274 28 283 43 295 47 C307 43 316 28 335 28 C380 28 459 36 531 26 C548 30 560 42 561 60 C553 96 559 137 561 180 C553 211 553 240 561 271 C559 318 551 382 527 422 C458 412 381 420 337 420 C317 420 308 406 295 402 C282 406 273 420 253 420 C209 420 132 412 63 422 C39 382 31 318 29 271 C37 240 37 211 29 180 C31 137 37 96 29 60 C30 42 42 30 59 26 Z"/>
+
+          <g>
+            <path class="cb88FrameCurl" d="M31 109 C17 86 22 51 53 36 C39 55 48 70 70 67 C48 82 41 101 51 124"/>
+            <path class="cb88FrameCurlRed" d="M31 109 C17 86 22 51 53 36 C39 55 48 70 70 67 C48 82 41 101 51 124"/>
+            <path class="cb88FrameCurl" d="M559 109 C573 86 568 51 537 36 C551 55 542 70 520 67 C542 82 549 101 539 124"/>
+            <path class="cb88FrameCurlRed" d="M559 109 C573 86 568 51 537 36 C551 55 542 70 520 67 C542 82 549 101 539 124"/>
+            <path class="cb88FrameCurl" d="M31 341 C17 364 22 399 53 414 C39 395 48 380 70 383 C48 368 41 349 51 326"/>
+            <path class="cb88FrameCurlRed" d="M31 341 C17 364 22 399 53 414 C39 395 48 380 70 383 C48 368 41 349 51 326"/>
+            <path class="cb88FrameCurl" d="M559 341 C573 364 568 399 537 414 C551 395 542 380 520 383 C542 368 549 349 539 326"/>
+            <path class="cb88FrameCurlRed" d="M559 341 C573 364 568 399 537 414 C551 395 542 380 520 383 C542 368 549 349 539 326"/>
+          </g>
+
+          <g>
+            <path d="M295 3 L314 20 L304 39 L295 49 L286 39 L276 20 Z" fill="url(#cb88FrameGem)" stroke="url(#cb88FrameGoldGradient)" stroke-width="4" vector-effect="non-scaling-stroke"/>
+            <path d="M295 447 L314 430 L304 411 L295 401 L286 411 L276 430 Z" fill="url(#cb88FrameGem)" stroke="url(#cb88FrameGoldGradient)" stroke-width="4" vector-effect="non-scaling-stroke"/>
+            <path d="M276 20 L295 26 L314 20 M286 39 L295 26 L304 39" fill="none" stroke="#fff0ac" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+            <path d="M276 430 L295 424 L314 430 M286 411 L295 424 L304 411" fill="none" stroke="#fff0ac" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+          </g>
+        </svg>
+
         <button id="cb88CloseX" type="button" aria-label="Tutup popup">×</button>
 
         <button id="cb88Prev" type="button" aria-label="Banner sebelumnya">‹</button>
@@ -502,7 +617,7 @@
             </span>
             <span class="cb88Text">
               <span class="cb88Main">EVENT AGUSTUS</span>
-              <span class="cb88Sub">MINIGAMES KEMERDEKAAN</span>
+              <span class="cb88Sub">MAIN &amp; MENANG</span>
             </span>
           </a>
 
