@@ -29,7 +29,7 @@
           display:flex;
           align-items:center;
           justify-content:center;
-          padding:58px;
+          padding:12px;
           box-sizing:border-box;
           font-family:Arial,Helvetica,sans-serif;
           overflow:hidden;
@@ -43,18 +43,17 @@
           width:100%;
           max-width:590px;
           background:linear-gradient(155deg,#061126 0%,#020711 48%,#07101f 100%);
-          overflow:visible;
+          overflow:hidden;
           z-index:2;
           cursor:default;
           pointer-events:auto;
           box-sizing:border-box;
           padding:0;
           border:0;
-          border-radius:30px;
+          border-radius:20px;
           box-shadow:
-            0 0 0 1px rgba(255,216,96,.88),
-            0 0 32px rgba(255,32,56,.42),
-            0 22px 60px rgba(0,0,0,.9);
+            0 18px 54px rgba(0,0,0,.9),
+            0 0 28px rgba(8,72,180,.16);
           animation:cbPop .35s cubic-bezier(.18,.9,.28,1.12);
         }
 
@@ -68,7 +67,7 @@
         #cb88Popup:after{
           content:"🇮🇩  GEBYAR 17 AGUSTUS  🇮🇩";
           position:absolute;
-          top:-31px;
+          top:8px;
           left:50%;
           transform:translateX(-50%);
           z-index:19;
@@ -155,15 +154,7 @@
         }
 
         .cb88OrnateFrame{
-          position:absolute;
-          top:-43px;
-          left:-49px;
-          width:calc(100% + 98px);
-          height:calc(100% + 88px);
-          z-index:18;
-          pointer-events:none;
-          overflow:visible;
-          filter:drop-shadow(0 3px 3px rgba(0,0,0,.72));
+          display:none;
         }
 
         .cb88FrameGold{
@@ -274,8 +265,8 @@
 
         #cb88CloseX{
           position:absolute;
-          top:-29px;
-          right:-31px;
+          top:8px;
+          right:8px;
           width:40px;
           height:40px;
           border-radius:50%;
@@ -374,6 +365,12 @@
           flex:none;
           padding-right:64px;
           text-shadow:0 1px 4px rgba(0,0,0,.88),0 0 8px rgba(255,210,80,.18);
+        }
+
+        .cb88BrandRed{
+          color:#ff304b;
+          font-weight:1000;
+          text-shadow:0 1px 4px rgba(0,0,0,.9),0 0 9px rgba(255,35,67,.48);
         }
 
         .cb88Btn{
@@ -509,23 +506,16 @@
 
         @media(max-width:520px){
           #cb88PopupWrap{
-            padding:38px;
+            padding:10px;
             -webkit-backdrop-filter:blur(2px) saturate(.98);
             backdrop-filter:blur(2px) saturate(.98);
           }
 
           #cb88Popup{
-            max-width:calc(100vw - 76px);
+            max-width:94vw;
             max-height:94vh;
             padding:0;
-            border-radius:24px;
-          }
-
-          .cb88OrnateFrame{
-            top:-29px;
-            left:-32px;
-            width:calc(100% + 64px);
-            height:calc(100% + 60px);
+            border-radius:16px;
           }
 
           #cb88PopupImg{border-radius:23px 23px 0 0;}
@@ -580,15 +570,15 @@
           .cb88Btn:after{right:9px;font-size:24px}
 
           #cb88Popup:after{
-            top:-22px;
+            top:6px;
             padding:5px 12px 6px;
             font-size:9px;
             letter-spacing:.6px;
           }
 
           #cb88CloseX{
-            top:-22px;
-            right:-23px;
+            top:7px;
+            right:7px;
             width:36px;
             height:36px;
             font-size:26px;
@@ -676,8 +666,8 @@
         <div id="cb88Action">
           <div class="cb88Ticker" aria-label="Informasi promo CLICKBET88">
             <div class="cb88TickerTrack">
-              <span>SELAMAT DATANG DI CLICKBET88 &nbsp;•&nbsp; DEPOSIT SEKARANG &nbsp;•&nbsp; NIKMATI BERAGAM BONUS SETIAP HARI &nbsp;✦&nbsp;</span>
-              <span aria-hidden="true">SELAMAT DATANG DI CLICKBET88 &nbsp;•&nbsp; DEPOSIT SEKARANG &nbsp;•&nbsp; NIKMATI BERAGAM BONUS SETIAP HARI &nbsp;✦&nbsp;</span>
+              <span>SELAMAT DATANG DI <b class="cb88BrandRed">CLICKBET88</b> &nbsp;•&nbsp; DEPOSIT SEKARANG &nbsp;•&nbsp; NIKMATI BERAGAM BONUS SETIAP HARI &nbsp;✦&nbsp;</span>
+              <span aria-hidden="true">SELAMAT DATANG DI <b class="cb88BrandRed">CLICKBET88</b> &nbsp;•&nbsp; DEPOSIT SEKARANG &nbsp;•&nbsp; NIKMATI BERAGAM BONUS SETIAP HARI &nbsp;✦&nbsp;</span>
             </div>
           </div>
 
