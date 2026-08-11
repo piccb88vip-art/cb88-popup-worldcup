@@ -502,7 +502,7 @@
             </span>
             <span class="cb88Text">
               <span class="cb88Main">EVENT AGUSTUS</span>
-              <span class="cb88Sub">MAIN &amp; MENANG</span>
+              <span class="cb88Sub">MINIGAMES KEMERDEKAAN</span>
             </span>
           </a>
 
