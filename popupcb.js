@@ -304,7 +304,7 @@
           display:grid;
           grid-template-columns:1fr 1fr;
           gap:10px;
-          padding:38px 11px 11px;
+          padding:45px 11px 11px;
           background:linear-gradient(180deg,rgba(3,8,20,.97),rgba(5,11,24,.99));
           border-top:1px solid rgba(104,220,255,.25);
           border-radius:0 0 36px 36px;
@@ -313,16 +313,67 @@
         }
 
         #cb88Action:before{
-          content:"AKSES CEPAT CLICKBET88";
+          display:none;
+        }
+
+        .cb88Ticker{
           position:absolute;
-          top:11px;
-          left:50%;
-          transform:translateX(-50%);
-          color:rgba(255,255,255,.72);
+          top:8px;
+          left:11px;
+          right:11px;
+          height:27px;
+          display:flex;
+          align-items:center;
+          overflow:hidden;
+          border:1px solid rgba(245,197,66,.52);
+          border-radius:999px;
+          background:linear-gradient(180deg,rgba(18,29,58,.98),rgba(4,8,20,.98));
+          color:#fff6d2;
           font-size:10px;
           font-weight:900;
-          letter-spacing:1.8px;
+          letter-spacing:.75px;
           white-space:nowrap;
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.11),
+            inset 0 0 13px rgba(245,197,66,.08),
+            0 3px 9px rgba(0,0,0,.42);
+          z-index:9;
+        }
+
+        .cb88Ticker:before,
+        .cb88Ticker:after{
+          content:"";
+          position:absolute;
+          top:0;
+          bottom:0;
+          width:32px;
+          z-index:2;
+          pointer-events:none;
+        }
+
+        .cb88Ticker:before{
+          left:0;
+          background:linear-gradient(90deg,#071027,rgba(7,16,39,0));
+        }
+
+        .cb88Ticker:after{
+          right:0;
+          background:linear-gradient(-90deg,#071027,rgba(7,16,39,0));
+        }
+
+        .cb88TickerTrack{
+          display:flex;
+          width:max-content;
+          min-width:max-content;
+          will-change:transform;
+          animation:cb88TickerMove 16s linear infinite;
+        }
+
+        .cb88TickerTrack span{
+          display:block;
+          flex:none;
+          padding-right:64px;
+          text-shadow:0 1px 4px rgba(0,0,0,.88),0 0 8px rgba(255,210,80,.18);
         }
 
         .cb88Btn{
@@ -454,6 +505,7 @@
 
         @keyframes cbBackdropIn{from{opacity:0}to{opacity:1}}
         @keyframes cbPop{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
+        @keyframes cb88TickerMove{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
         @media(max-width:520px){
           #cb88PopupWrap{
@@ -483,8 +535,20 @@
           #cb88Action{
             grid-template-columns:1fr 1fr;
             gap:8px;
-            padding:34px 8px 8px;
+            padding:40px 8px 8px;
           }
+
+          .cb88Ticker{
+            top:7px;
+            left:8px;
+            right:8px;
+            height:25px;
+            font-size:8px;
+            letter-spacing:.45px;
+          }
+
+          .cb88TickerTrack{animation-duration:14s;}
+          .cb88TickerTrack span{padding-right:44px;}
 
           .cb88Btn{
             min-height:52px;
@@ -610,6 +674,13 @@
         <div id="cb88Dots"></div>
 
         <div id="cb88Action">
+          <div class="cb88Ticker" aria-label="Informasi promo CLICKBET88">
+            <div class="cb88TickerTrack">
+              <span>SELAMAT DATANG DI CLICKBET88 &nbsp;•&nbsp; DEPOSIT SEKARANG &nbsp;•&nbsp; NIKMATI BERAGAM BONUS SETIAP HARI &nbsp;✦&nbsp;</span>
+              <span aria-hidden="true">SELAMAT DATANG DI CLICKBET88 &nbsp;•&nbsp; DEPOSIT SEKARANG &nbsp;•&nbsp; NIKMATI BERAGAM BONUS SETIAP HARI &nbsp;✦&nbsp;</span>
+            </div>
+          </div>
+
           <a id="cb88Event" class="cb88Btn" href="${eventURL}" target="_blank" rel="noopener noreferrer">
             <span class="cb88Icon">
               <svg viewBox="0 0 32 32" aria-hidden="true">
