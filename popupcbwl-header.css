@@ -1,9 +1,11 @@
 /* MOBILE ONLY */
 @media (max-width: 991px){
+
   .c-ptpKx{
     position: fixed !important;
     overflow: hidden !important;
-    background: url("http://plcl.me/images/rjuXb.jpg") center center / cover no-repeat !important; 
+    margin-bottom: -12px !important;
+    background: url("https://plcl.me/images/rjuXb.jpg") center center / cover no-repeat !important;
   }
 
   .c-ptpKx img[alt="header-bg"]{
@@ -22,5 +24,10 @@
   .c-ptpKx > *{
     position: relative !important;
     z-index: 1 !important;
+  }
+
+  /* Tutup baris hitam antara header dan banner */
+  .c-ptpKx + *{
+    margin-top: -12px !important;
   }
 }
